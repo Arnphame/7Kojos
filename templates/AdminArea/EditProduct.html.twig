@@ -1,0 +1,46 @@
+{% extends 'AdminArea/base.html.twig' %}
+{% block body %}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Edit product</h1>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Code</label>
+                <input type="text" class="form-control" id="productCode" aria-describedby="product_code" value="Product code">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Name</label>
+                <input type="text" class="form-control" id="productName" value="Product name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Price</label>
+                <input type="number" class="form-control" id="productPrice" value="20.50">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Price with discount</label>
+                <input type="number" class="form-control" id="productDiscount" value="19.20">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Count</label>
+                <input type="number" class="form-control" id="productCount" value="50">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Date when added</label>
+                <input type="date" class="form-control" id="productDate" value="2018-11-05">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Short description</label>
+                <textarea class="form-control" id="ProductShortDescription" rows="2" >wewewe</textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Long description</label>
+                <textarea class="form-control" id="ProductLongDescription" rows="3" >wewewewe</textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Discount end date</label>
+                <input type="date" class="form-control" id="productDate" value="2018-11-05">
+            </div>
+            <button type="submit" class="btn btn-primary">Edit product</button>
+        </form>
+{% endblock %}

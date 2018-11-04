@@ -1,40 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Colorlib Templates">
-    <meta name="author" content="Colorlib">
-    <meta name="keywords" content="Colorlib Templates">
-
-    <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
-
-    <!-- Icons font CSS-->
-    <link href="{{ asset('vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Vendor CSS-->
-    <link href="{{ asset('vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('vendor/datepicker/daterangepicker.css') }}" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet" media="all">
-</head>
-
-<body>
-<div class="page-wrapper bg-gra-01 p-t-130 p-b-100 font-poppins">
-    <div class="wrapper wrapper--w680">
-        <div class="card card-4">
-            <div class="card-body">
-                <h2 class="title">Registration Form</h2>
-                <form method="POST">
+{% extends 'UserArea/base.html.twig' %}
+{% block body %}
+<div class="main-wrapper-first">
+    <div class="banner-area">
+        <div class="container">
+            <div class="row justify-content-center height align-items-center">
+                <div class="col-lg-4">
+                    <div class="banner-content text-center">
+                        <h2 class="title">Member Area</h2>
+                        &nbsp;
                     <div class="row row-space">
-                        <div class="col-2">
+                        <div class="col-2_forms">
                             <div class="wrap-input100 validate-input" data-validate = "Name is incorrect">
                                 <input class="input100" type="text" name="name" placeholder="Name">
                                 <span class="focus-input100"></span>
@@ -43,7 +18,7 @@
 						</span>
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2_forms">
                             <div class="wrap-input100 validate-input" data-validate = "Surname is incorrect">
                                 <input class="input100" type="text" name="surname" placeholder="Surname">
                                 <span class="focus-input100"></span>
@@ -54,7 +29,7 @@
                         </div>
                     </div>
                     <div class="row row-space">
-                        <div class="col-2">
+                        <div class="col-2_forms">
                             <div class="wrap-input100 validate-input" data-validate = "Zip Code is incorrect">
                                 <input class="input100" type="text" name="zipcode" placeholder="Zip code">
                                 <span class="focus-input100"></span>
@@ -63,7 +38,7 @@
 						</span>
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2_forms">
                             <div class="wrap-input100 validate-input" data-validate = "Address is incorrect">
                                 <input class="input100" type="text" name="address" placeholder="Address">
                                 <span class="focus-input100"></span>
@@ -74,7 +49,7 @@
                         </div>
                     </div>
                     <div class="row row-space">
-                        <div class="col-2">
+                        <div class="col-2_forms">
                             <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                                 <input class="input100" type="text" name="email" placeholder="Email">
                                 <span class="focus-input100"></span>
@@ -83,7 +58,7 @@
 						</span>
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2_forms">
                             <div class="wrap-input100 validate-input" data-validate = "Phone number is incorrect">
                                 <input class="input100" type="text" name="phone" placeholder="Phone number">
                                 <span class="focus-input100"></span>
@@ -105,12 +80,14 @@
                             <div class="select-dropdown"></div>
                         </div>
                     </div>-->
-                    <div class="p-t-15">
-                        <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Register
+                        </button>
                     </div>
                 </form>
                 &nbsp;
-                <div class="text-center p-t-136">
+                <div class="text-center p-t-12">
                     <a class="txt2" href="{{ path('login') }}">
                         Already have an account?
                         <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
@@ -120,18 +97,8 @@
         </div>
     </div>
 </div>
+    </div>
+{% endblock %}
 
-<!-- Jquery JS-->
-<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-<!-- Vendor JS-->
-<script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
-<script src="{{ asset('vendor/datepicker/moment.min.js') }}"></script>
-<script src="{{ asset('vendor/datepicker/daterangepicker.js') }}"></script>
 
-<!-- Main JS-->
-<script src="{{ asset('js/global.js') }}"></script>
 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-
-</html>
-<!-- end document-->
