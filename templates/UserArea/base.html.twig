@@ -23,28 +23,31 @@
 {% endblock %}
 <body>
 {% block header %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand"  href="{{ path('home') }}">
+             <img src="img/logo.png" width="10%" height="10%" alt="">
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('user_register') }}">REGISTER</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link" href="{{ path('login') }}">LOGIN</a>
                 </li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </div>
+    <div class="container-fluid slider">
+    <div class="container">
+        <table>
+            <tr>
+                <td class="header-td"><a class="header-text" href="{{ path('listProducts') }}">BUILD YOUR<br><h4>SYSTEM</h4></a></td>
+                <td><a class="header-text" href="#">Login</a></td>
+            </tr>
+        </table>
+    </div>
+    </div>
 {% endblock %}
 {% block body %}
 
@@ -58,12 +61,13 @@
     </footer>
 {% endblock %}
 {% block scripts %}
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-2.2.4.min.js') }}"><\/script>')</script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-2.2.4.min.js') }}"><\/script>')</script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/filters.js') }}"></script>
 {% endblock %}
 </body>
 </html>

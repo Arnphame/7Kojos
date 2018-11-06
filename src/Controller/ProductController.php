@@ -61,4 +61,22 @@ class ProductController extends AbstractController
             'controller_name' => 'ProductController',
         ]);
     }
+    /**
+     * @Route("/products/list", name="listProducts")
+     */
+    public function listProducts()
+    {
+        return $this->render('UserArea/ChooseComponents.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+    /**
+     * @Route("/products/list/cpu", name="choose_cpu")
+     */
+    public function choose_cpu()
+    {
+        return $this->render('UserArea/choose_cpu.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
 }
