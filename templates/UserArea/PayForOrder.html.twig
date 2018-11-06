@@ -1,0 +1,15 @@
+{% extends 'UserArea/base.html.twig' %}
+{% block body %}
+<div class="container">
+    <div class="table-responsive">
+        <h2 class="text-center">Please select the payment method from down below</h2>
+        <div class="list-group">
+            <a href="{{ path('payByBank') }}" class="list-group-item">Bank transfer</a>
+            <a href="{{ path('payByPaypal') }}" class="list-group-item">Paypal</a>
+            <a href="{{ path('payByCreditCard') }}" class="list-group-item">Credit/Debit Card</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

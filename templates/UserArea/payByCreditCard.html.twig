@@ -1,0 +1,24 @@
+{% extends 'UserArea/base.html.twig' %}
+{% block body %}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Credit card information</h1>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Creidt card number</label>
+                <input type="text" class="form-control" id="creditCardNr" aria-describedby="couponCode" placeholder="4770 4992 4967 7853">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">CVV</label>
+                <input type="text" class="form-control" id="creditCardCVV" placeholder="492">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Expiration date</label>
+                <input type="date" class="form-control" id="creditCardED" placeholder="12/2020">
+            </div>
+            <button type="submit" class="btn btn-primary">Buy</button>
+            <br>
+            <br>
+        </form>
+{% endblock %}
