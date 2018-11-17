@@ -1,10 +1,50 @@
 {% extends 'AdminArea/base.html.twig' %}
 {% block body %}
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>ERROR</strong> {% if error is defined and error is not empty %}
+        <div>  {{ error }} </div>
+        {% endif %} }}
+    </div>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Products</h1>
         </div>
         <button onclick="location.href='{{ path('AddProduct') }}'" type="button" class="btn btn-primary">Add new product</button>
-        <button onclick="location.href='{{ path('EditProduct') }}'" type="button" class="btn btn-primary">Edit product</button>
-        <button onclick="location.href='{{ path('RemoveProduct') }}'" type="button" class="btn btn-primary">Delete product</button>
+        <br>
+        <br>
+        <table class="table table-striped table-sm">
+            <tr>
+                <th>Type</th>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Discount Price</th>
+                <th>Quantity</th>
+                <th>Warranty</th>
+                <th>Add Date</th>
+                <th>Edit Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            {% for p in products %}
+            <tr>
+                <td>{{ p.type }}</td>
+                <td>{{ p.productNumber }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.price }}</td>
+                <td>{{ p.discountPrice }}</td>
+                <td>{{ p.quantity }}</td>
+                <td>{{ p.warrantyTime }}</td>
+                <td>{{ p.addDate|date('Y-m-d') }}</td>
+                {% if p.lastEditDate == '' %}
+                    <td>N/A</td>
+                {% else %}
+                    <td>{{ p.lastEditDate|date('Y-m-d') }}</td>
+                {% endif %}
+                <td><button onclick="location.href='{{ '/admin/products/edit/' ~ p.productNumber }}'" type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                <td><button onclick="location.href='{{ '/admin/products/delete/' ~ p.productNumber }}'" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+         </tr>
+         {% endfor %}
+        </table>
 {% endblock %}

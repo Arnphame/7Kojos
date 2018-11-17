@@ -15,7 +15,7 @@ class Product
      * @ORM\Column(type="integer")
      * @Assert\NotBlank()
      */
-    private $product_number;
+    private $productNumber;
     /**
      * @ORM\Column(type="string", length=64)
      * @Assert\NotBlank()
@@ -31,7 +31,7 @@ class Product
      * @ORM\Column(type="float", length=6)
      * @Assert\Range(min = 0, minMessage = "Price must be higher than {{ limit }}")
      */
-    private $discount_price;
+    private $discountPrice;
     /**
      * @ORM\Column(type="integer", length=4, nullable=true)
      * @Assert\NotBlank()
@@ -42,44 +42,44 @@ class Product
      * @ORM\Column(type="date")
      * @Assert\Date
      */
-    private $add_date;
+    private $addDate;
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
      */
-    private $long_description;
+    private $longDescription;
     /**
      * @ORM\Column(type="string", length=64)
      * @Assert\NotBlank()
      */
-    private $short_description;
+    private $shortDescription;
     /**
      * @ORM\Column(type="date",nullable=true)
      * @Assert\Date
      */
-    private $last_edit_date;
+    private $lastEditDate;
     /**
      * @ORM\Column(type="date", nullable=true)
      * @Assert\Date
      */
-    private $discount_end_date;
+    private $discountEndDate;
     /**
      * @ORM\Column(type="integer", length=2)
      */
-    private $warranty_time;
+    private $warrantyTime;
     /**
      * @ORM\Column(type="string", length=32)
      * @Assert\NotBlank()
      */
     private $type;
 
-    public function getProductNumber(): ?int
+    public function getProductNumber()
     {
-        return $this->product_number;
+        return $this->productNumber;
     }
     public function setProductNumber($number)
     {
-        $this->product_number = $number;
+        $this->productNumber = $number;
     }
     public function setType($type)
     {
@@ -110,11 +110,11 @@ class Product
     }
     public function setDiscountPrice($price)
     {
-        $this->discount_price = $price;
+        $this->discountPrice = $price;
     }
     public function getDiscountPrice()
     {
-        return $this->discount_price;
+        return $this->discountPrice;
     }
     public function setQuantity($quantity)
     {
@@ -126,50 +126,50 @@ class Product
     }
     public function setAddDate($date)
     {
-        $this->add_date = $date;
+        $this->addDate = $date;
     }
     public function getAddDate()
     {
-        return $this->add_date;
+        return $this->addDate;
     }
     public function setLongDescription($description)
     {
-        $this->long_description = $description;
+        $this->longDescription = $description;
     }
     public function getLongDescription()
     {
-        return $this->long_description;
+        return $this->longDescription;
     }
     public function setShortDescription($description)
     {
-        $this->short_description = $description;
+        $this->shortDescription = $description;
     }
     public function getShortDescription()
     {
-        return $this->short_description;
+        return $this->shortDescription;
     }
-    public function setLastEdit($date)
+    public function setLastEditDate($date)
     {
-        $this->last_edit_date = $date;
+        $this->lastEditDate = $date;
     }
-    public function getLastEdit()
+    public function getLastEditDate()
     {
-        return $this->last_edit_date;
+        return $this->lastEditDate;
     }
     public function setDiscountEndDate($date)
     {
-        $this->discount_end_date = $date;
+        $this->discountEndDate = $date;
     }
     public function getDiscountEndDate()
     {
-        return $this->discount_end_date;
+        return $this->discountEndDate;
     }
     public function setWarrantyTime($time)
     {
-        $this->warranty_time = $time;
+        $this->warrantyTime = $time;
     }
     public function getWarrantyTime()
     {
-        return $this->warranty_time;
+        return $this->warrantyTime;
     }
 }

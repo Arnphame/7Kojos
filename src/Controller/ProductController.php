@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\ProductTypes;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,6 +12,19 @@ use App\Form\ProductType;
 class ProductController extends AbstractController
 {
     /**
+     * @Route("/admin/products", name="ProductsList")
+     */
+    public function ProductsList()
+    {
+        $rep = $this->getDoctrine()->getRepository('App:Product');
+        $products = $rep->findAll();
+
+        return $this->render(
+            'AdminArea/products.html.twig',
+            array('products' => $products)
+        );
+    }
+        /**
      * @Route("/admin/products/add", name="AddProduct")
      */
     public function AddProduct(Request $request)
@@ -28,7 +42,7 @@ class ProductController extends AbstractController
             $em->persist($product);
             $em->flush();
 
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('ProductsList');
         }
         return $this->render(
             'AdminArea/AddProduct.html.twig',
@@ -36,22 +50,48 @@ class ProductController extends AbstractController
         );
     }
     /**
-     * @Route("/admin/products/edit", name="EditProduct")
+     * @Route("/admin/products/edit/{id}", name="EditProduct")
      */
-    public function EditProduct()
+    public function EditProduct($id, Request $request)
     {
-        return $this->render('AdminArea/EditProduct.html.twig', [
-            'controller_name' => 'ProductController',
-        ]);
+        $product = $this->getDoctrine()->getRepository(Product::class)->findOneBy(['productNumber' => $id]);
+        $em = $this->getDoctrine()->getManager();
+
+        if(!$product){
+            return $this->render(
+                'AdminArea/products.html.twig',
+                array('error' => 'No product with $id found')
+            );
+        }
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $date = date('Y-m-d H:i:s');
+            $product->setLastEditDate(new \DateTime($date));
+            $em->flush();
+
+            return $this->redirectToRoute('ProductsList');
+        }
+        return $this->render(
+            'AdminArea/AddProduct.html.twig',
+            array('form' => $form->createView(),
+                'error' => 'No product with $id found',
+                'product' => $product,
+            ));
     }
     /**
-     * @Route("/admin/products/remove", name="RemoveProduct")
+     * @Route("/admin/products/delete/{id}", name="RemoveProduct")
      */
-    public function RemoveProduct()
+    public function RemoveProduct($id, Request $request)
     {
-        return $this->render('AdminArea/RemoveProduct.html.twig', [
-            'controller_name' => 'ProductController',
-        ]);
+        $product = $this->getDoctrine()->getRepository(Product::class)->findOneBy(['productNumber' => $id]);
+
+        if ($product) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($product);
+            $em->flush();
+        }
+        return $this->redirectToRoute('ProductsList');
     }
     /**
      * @Route("/admin/reports/products", name="ProductsReport")
@@ -77,15 +117,6 @@ class ProductController extends AbstractController
     public function SortProducts()
     {
         return $this->render('UserArea/SortProducts.html.twig', [
-            'controller_name' => 'ProductController',
-        ]);
-    }
-    /**
-     * @Route("/products/list", name="listProducts")
-     */
-    public function listProducts()
-    {
-        return $this->render('UserArea/ChooseComponents.html.twig', [
             'controller_name' => 'ProductController',
         ]);
     }
