@@ -1,0 +1,17 @@
+{% extends 'UserArea/base.html.twig' %}
+{% block body %}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Choose your help</h1>
+        </div>	
+        <button onclick="location.href='{{ path('CommonQuestions') }}'" type="button" class="btn btn-primary">The most common qestions</button>
+        <button onclick="location.href='{{ path('MostPopularProducts') }}'" type="button" class="btn btn-primary">The most popular products</button>
+		<p>
+		
+		
+		
+		
+		</p>
+		<h4>If you failed to find an answer in the guides above</h4>
+		<button onclick="location.href='{{ path('PostSuggestion') }}'" type="button" class="btn btn-primary">Post a suggestion here</button>
+{% endblock %}

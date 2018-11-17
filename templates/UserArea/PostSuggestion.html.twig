@@ -1,0 +1,18 @@
+{% extends 'UserArea/base.html.twig' %}
+{% block body %}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">New suggestion</h1>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Name</label>
+                <input type="text" class="form-control" id="suggestorsName" placeholder="suggestors name">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Your message</label>
+                <textarea class="form-control" id="suggestorsMessage" rows="5" ></textarea>
+            </div>        
+            <button type="submit" class="btn btn-primary">Post your suggestion</button>
+        </form>
+{% endblock %}

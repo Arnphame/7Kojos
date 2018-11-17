@@ -35,7 +35,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('login') }}">LOGIN</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('user_cart') }}">
+                        <span data-feather="file"></span>
+                        Cart
+                    </a>
+                </li>
             </ul>
+
         </nav>
     </div>
     <div class="container-fluid slider">
@@ -43,7 +50,9 @@
             <table>
                 <tr>
                     <td class="header-td"><a class="header-text" href="{{ path('listProducts') }}">BUILD YOUR<br><h4>SYSTEM</h4></a></td>
-                    <td><a class="header-text" href="#">Login</a></td>
+                    <td class="header-td"><a class="header-text" href="{{ path('repairSearch') }}">SEARCH COMPUTER<br><h4>REPAIR</h4></a></td>
+                    <td class="header-td"><a class="header-text" href="{{ path('user_suggestions') }}"><h4>SUGGESTIONS</h4></a></td>
+                    <td class="header-td"><a class="header-text" href="{{ path('user_userHelp') }}">USER<br><h4>HELP</h4></a></td>
                 </tr>
             </table>
         </div>

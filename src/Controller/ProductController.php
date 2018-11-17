@@ -3,18 +3,37 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Product;
+use App\Form\ProductType;
 
 class ProductController extends AbstractController
 {
     /**
      * @Route("/admin/products/add", name="AddProduct")
      */
-    public function AddProduct()
+    public function AddProduct(Request $request)
     {
-        return $this->render('AdminArea/AddProduct.html.twig', [
-            'controller_name' => 'ProductController',
-        ]);
+        $product = new Product();
+        $form = $this->createForm(ProductType::class, $product);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $date = date('Y-m-d H:i:s');
+            $product->setAddDate(new \DateTime($date));
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($product);
+            $em->flush();
+
+            return $this->redirectToRoute('admin');
+        }
+        return $this->render(
+            'AdminArea/AddProduct.html.twig',
+            array('form' => $form->createView())
+        );
     }
     /**
      * @Route("/admin/products/edit", name="EditProduct")

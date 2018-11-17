@@ -1,0 +1,27 @@
+{% extends 'StaffArea/base.html.twig' %}
+{% block body %}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Edit product</h1>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Code</label>
+                <input type="text" class="form-control" id="repairCode" aria-describedby="repair_code" placeholder="Repair code">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Order date</label>
+                <input type="date" class="form-control" id="orderDate" placeholder="2018-11-06">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Expected repair end date</label>
+                <input type="date" class="form-control" id="repairEndDate" placeholder="2018-11-07">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Diagnosed problem</label>
+                <input type="number" class="form-control" id="diagnosedProblem" placeholder="burnt">
+            </div>
+            <button onclick="location.href='{{ path('staff_repairs') }}'" type="button" class="btn btn-primary">Edit repair order</button>
+			
+        </form>
+{% endblock %}

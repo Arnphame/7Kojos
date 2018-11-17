@@ -13,3 +13,39 @@ admin_reports:
     controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
     defaults:
         template: AdminArea/reports.html.twig
+
+staff_repairs:
+    path: /staff/repairOrders
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: StaffArea/repairOrder.html.twig
+
+admin_workers:
+    path: /admin/workers
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: AdminArea/workers.html.twig
+
+admin_customers:
+    path: /admin/customers
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: AdminArea/customers.html.twig
+
+user_cart:
+    path: /user/cart
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: UserArea/cart.html.twig
+
+user_suggestions:
+    path: /user/suggestions
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: UserArea/suggestions.html.twig
+
+user_userHelp:
+    path: /user/userHelp
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: UserArea/userHelp.html.twig

@@ -1,0 +1,24 @@
+{% extends 'StaffArea/base.html.twig' %}
+{% block body %}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Filter out computers</h1>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Part1</label>
+                <input type="text" class="form-control" id="productCode" aria-describedby="product_delete" placeholder="DDR4">
+            </div>
+			
+			<div class="form-group">
+                <label for="exampleInputEmail1">Part2</label>
+                <input type="text" class="form-control" id="productCode" aria-describedby="product_delete" placeholder="Intel">
+            </div>
+			
+			<div class="form-group">
+                <label for="exampleInputEmail1">Part3</label>
+                <input type="text" class="form-control" id="productCode" aria-describedby="product_delete" placeholder="nVidia">
+            </div>
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+{% endblock %}

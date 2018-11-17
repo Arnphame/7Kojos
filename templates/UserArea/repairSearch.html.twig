@@ -1,0 +1,14 @@
+{% extends 'UserArea/base.html.twig' %}
+{% block body %}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Search product</h1>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Repair code</label>
+                <input type="text" class="form-control" id="productCode" aria-describedby="repair_search" placeholder="">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+{% endblock %}

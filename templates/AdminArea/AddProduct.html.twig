@@ -4,43 +4,21 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Add new product</h1>
         </div>
-        <form>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Code</label>
-                <input type="text" class="form-control" id="productCode" aria-describedby="product_code" placeholder="Product code">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Name</label>
-                <input type="text" class="form-control" id="productName" placeholder="Product name">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Price</label>
-                <input type="number" class="form-control" id="productPrice" placeholder="20.50">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Price with discount</label>
-                <input type="number" class="form-control" id="productDiscount" placeholder="19.20">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Count</label>
-                <input type="number" class="form-control" id="productCount" placeholder="50">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Date when added</label>
-                <input type="date" class="form-control" id="productDate" placeholder="2018-11-05">
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Short description</label>
-                <textarea class="form-control" id="ProductShortDescription" rows="2" ></textarea>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Long description</label>
-                <textarea class="form-control" id="ProductLongDescription" rows="3" ></textarea>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Discount end date</label>
-                <input type="date" class="form-control" id="productDate" placeholder="2018-11-05">
-            </div>
-            <button type="submit" class="btn btn-primary">Add new product</button>
-        </form>
+
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+        Type {{ form_widget(form.type) }}
+        Product Number {{ form_widget(form.product_number) }}
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        <br>
+        <button type="submit" class="btn btn-primary">Add new product</button>
+
 {% endblock %}
