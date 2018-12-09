@@ -2,17 +2,34 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Entity;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
+ * @ORM\Entity
+ * @UniqueEntity("productNumber")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({
+ *     "MB" = "MB",
+ *     "RAM" = "RAM",
+ *     "Storage" = "Storage",
+ *     "CPU" = "CPU",
+ *     "GPU" = "GPU",
+ *     "PSU" = "PSU",
+ *     "Chassis" = "Chassis",
+ *     "CPUCooler" = "CPUCooler",
+ *     "ChassisCooler" = "ChassisCooler"
+ * })
  */
-class Product
+abstract class Product
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", unique=true)
      * @Assert\NotBlank()
      */
     private $productNumber;
@@ -67,11 +84,6 @@ class Product
      * @ORM\Column(type="integer", length=2)
      */
     private $warrantyTime;
-    /**
-     * @ORM\Column(type="string", length=32)
-     * @Assert\NotBlank()
-     */
-    private $type;
 
     public function getProductNumber()
     {
@@ -80,17 +92,6 @@ class Product
     public function setProductNumber($number)
     {
         $this->productNumber = $number;
-    }
-    public function setType($type)
-    {
-        if(!in_array($type, ProductTypes::getTypes())){
-            throw new \InvalidArgumentException("Invalid type");
-        }
-        $this->type = $type;
-    }
-    public function getType()
-    {
-        return $this->type;
     }
     public function setName($name)
     {
@@ -173,3 +174,12 @@ class Product
         return $this->warrantyTime;
     }
 }
+
+
+
+
+
+
+
+
+

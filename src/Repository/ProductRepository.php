@@ -18,6 +18,11 @@ class ProductRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Product::class);
     }
+    public function createAlphabeticalQueryBuilder()
+    {
+        return $this->createQueryBuilder('CPU')
+            ->orderBy('CPU.id', 'ASC');
+    }
 
 //    /**
 //     * @return Product[] Returns an array of Product objects

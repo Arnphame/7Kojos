@@ -8,6 +8,12 @@ admin_products:
     defaults:
         template: AdminArea/products.html.twig
 
+admin_add_product:
+    path: /admin/products/add
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: AdminArea/AddProduct.html.twig
+
 admin_reports:
     path: /admin/reports
     controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController

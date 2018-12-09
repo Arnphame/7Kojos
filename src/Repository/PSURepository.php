@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ProductTypes;
+use App\Entity\PSU;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method ProductTypes|null find($id, $lockMode = null, $lockVersion = null)
- * @method ProductTypes|null findOneBy(array $criteria, array $orderBy = null)
- * @method ProductTypes[]    findAll()
- * @method ProductTypes[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method PSU|null find($id, $lockMode = null, $lockVersion = null)
+ * @method PSU|null findOneBy(array $criteria, array $orderBy = null)
+ * @method PSU[]    findAll()
+ * @method PSU[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProductTypeRepository extends ServiceEntityRepository
+class PSURepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, ProductTypes::class);
+        parent::__construct($registry, PSU::class);
     }
 
 //    /**
-//     * @return ProductTypes[] Returns an array of ProductTypes objects
+//     * @return PSU[] Returns an array of PSU objects
 //     */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ProductTypeRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ProductTypes
+    public function findOneBySomeField($value): ?PSU
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

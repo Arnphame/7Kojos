@@ -1,0 +1,43 @@
+{% extends 'AdminArea/base.html.twig' %}
+{% block body %}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Add new product</h1>
+    </div>
+
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {% if product is defined %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        <div style="visibility: hidden;">{{ form_widget(form.type) }}</div>
+        <div style="visibility: hidden;">{{ form_widget(form.product_number) }}</div>
+        <button type="submit" class="btn btn-primary">Edit product</button>
+    {% else %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+        Product Number {{ form_widget(form.product_number) }}
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        Type {{ form_widget(form.chassisType) }}
+        GPU Length {{ form_widget(form.gpuLength) }}
+        Cooler Support {{ form_widget(form.cooler_support) }}
+        <br>
+        <button type="submit" class="btn btn-primary">Add new product</button>
+    {% endif %}
+
+{% endblock %}

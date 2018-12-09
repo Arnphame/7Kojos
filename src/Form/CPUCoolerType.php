@@ -2,11 +2,10 @@
 
 namespace App\Form;
 
-use App\Entity\CPU;
-use App\Entity\MB;
-use App\Entity\Product;
+use App\Entity\CPUCooler;
 use App\Repository\CPURepository;
 use App\Repository\ProductRepository;
+use Doctrine\DBAL\Types\IntegerType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -16,7 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProductType extends AbstractType
+class CPUCoolerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -29,14 +28,17 @@ class ProductType extends AbstractType
             ->add('long_description',TextType::class)
             ->add('short_description',TextType::class)
             ->add('warranty_time',NumberType::class)
+            ->add('RPM',NumberType::class)
+            ->add('noiseLevel',NumberType::class)
+            ->add('size',NumberType::class)
+            ->add('CPUCoolerType',TextType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Product::class,
-
+            'data_class' => CPUCooler::class,
         ]);
     }
 }
