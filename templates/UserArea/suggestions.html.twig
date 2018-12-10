@@ -4,29 +4,21 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Suggestions</h1>
         </div>
-		<div class="table-responsive">
-    <table class="table table-striped table-sm">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Message</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Marius</td>
-            <td>Design lacks creativity</td>
-        </tr>
-        <tr>
-            <td>Saulius</td>
-            <td>Working very slowly</td>
-        </tr>
-        <tr>
-            <td>Darius</td>
-            <td>Your prices are shocking!!!</td>
-        </tr>    
-        </tbody>
-    </table>
-</div>
-        <button onclick="location.href='{{ path('PostSuggestion') }}'" type="button" class="btn btn-primary">Create a new suggestion</button>
+        <button onclick="location.href='{{ path('AddSuggestion') }}'" type="button" class="btn btn-primary">Add new suggestion</button>
+        <br>
+        <br>
+        <table class="table table-striped table-sm">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Message</th>
+            </tr>
+            {% for p in suggestions %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.message }}</td>
+         </tr>
+         {% endfor %}
+        </table>
 {% endblock %}
