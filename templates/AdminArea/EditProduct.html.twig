@@ -1,0 +1,180 @@
+{% extends 'AdminArea/base.html.twig' %}
+{% block body %}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Add new product</h1>
+    </div>
+
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {% if product is defined and mb is defined %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        CPU Socket {{ form_widget(form.cpuSocket) }}
+        RAM Type {{ form_widget(form.ramType) }}
+        Size {{ form_widget(form.size) }}
+        Power Consumption {{ form_widget(form.powerConsumption) }}
+        <div style="visibility: hidden;">{{ form_widget(form.product_number) }}</div>
+        <button type="submit" class="btn btn-primary">Edit product</button>
+    {% endif %}
+    {% if product is defined and cpu is defined %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        Socket {{ form_widget(form.socket) }}
+        Speed {{ form_widget(form.speed) }}
+        Cores {{ form_widget(form.cores) }}
+        Power Consumption {{ form_widget(form.powerConsumption) }}
+        <div style="visibility: hidden;">{{ form_widget(form.product_number) }}</div>
+        <button type="submit" class="btn btn-primary">Edit product</button>
+    {% endif %}
+    {% if product is defined and gpu is defined %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        Memory {{ form_widget(form.memory) }}
+        Core Clock {{ form_widget(form.coreClock) }}
+        Memory type {{ form_widget(form.memoryType) }}
+        Size {{ form_widget(form.size) }}
+        Power Consumption {{ form_widget(form.powerConsumption) }}
+        <div style="visibility: hidden;">{{ form_widget(form.product_number) }}</div>
+        <button type="submit" class="btn btn-primary">Edit product</button>
+    {% endif %}
+    {% if product is defined and ram is defined %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        Type {{ form_widget(form.RAMtype) }}
+        Speed {{ form_widget(form.speed) }}
+        CAS {{ form_widget(form.CAS) }}
+        <div style="visibility: hidden;">{{ form_widget(form.product_number) }}</div>
+        <button type="submit" class="btn btn-primary">Edit product</button>
+    {% endif %}
+    {% if product is defined and psu is defined %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        Form {{ form_widget(form.form) }}
+        Watts {{ form_widget(form.watts) }}
+        Modular {{ form_widget(form.modular) }}
+        <div style="visibility: hidden;">{{ form_widget(form.product_number) }}</div>
+        <button type="submit" class="btn btn-primary">Edit product</button>
+    {% endif %}
+    {% if product is defined and storage is defined %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        Size {{ form_widget(form.size) }}
+        Type {{ form_widget(form.storageType) }}
+        Form {{ form_widget(form.form) }}
+        <div style="visibility: hidden;">{{ form_widget(form.product_number) }}</div>
+        <button type="submit" class="btn btn-primary">Edit product</button>
+
+    {% endif %}
+    {% if product is defined and cpucooler is defined %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        RPM {{ form_widget(form.RPM) }}
+        Noise level {{ form_widget(form.noiseLevel) }}
+        Size {{ form_widget(form.size) }}
+        Type {{ form_widget(form.CPUCoolerType) }}
+        <div style="visibility: hidden;">{{ form_widget(form.product_number) }}</div>
+        <button type="submit" class="btn btn-primary">Edit product</button>
+
+    {% endif %}
+    {% if product is defined and case is defined %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        Type {{ form_widget(form.chassisType) }}
+        GPU Length {{ form_widget(form.gpuLength) }}
+        Cooler Support {{ form_widget(form.coolerSupport) }}
+        <div style="visibility: hidden;">{{ form_widget(form.product_number) }}</div>
+        <button type="submit" class="btn btn-primary">Edit product</button>
+    {% endif %}
+    {% if product is defined and casecooler is defined %}
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_errors(form) }}
+
+        Name {{ form_widget(form.name) }}
+        Price {{ form_widget(form.price) }}
+        Discount Price {{ form_widget(form.discount_price) }}
+        Quantity {{ form_widget(form.quantity) }}
+        Long Description {{ form_widget(form.long_description) }}
+        Short Description {{ form_widget(form.short_description) }}
+        Warranty Time {{ form_widget(form.warranty_time) }}
+        Size {{ form_widget(form.size) }}
+        RPM {{ form_widget(form.RPM) }}
+        Airflow {{ form_widget(form.airflow) }}
+        Noise Level {{ form_widget(form.noiseLevel) }}
+        <div style="visibility: hidden;">{{ form_widget(form.product_number) }}</div>
+        <button type="submit" class="btn btn-primary">Edit product</button>
+    {% endif %}
+
+{% endblock %}

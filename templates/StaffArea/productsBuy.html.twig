@@ -1,0 +1,14 @@
+{% extends 'StaffArea/base.html.twig' %}
+{% block body %}
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">ID: {{ product.productNumber }}; Name: {{ product.name }}; Current quantity: {{ product.quantity }}</h1>
+    </div>
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {{ form_start(form) }}
+    {{ form_row(form._token) }}
+    {{ form_errors(form) }}
+    How many we will buy? {{ form_widget(form.amount) }}
+    <br>
+    <button type="submit" class="btn btn-primary">Buy products</button>
+{% endblock %}

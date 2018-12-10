@@ -1,13 +1,16 @@
 {% extends 'StaffArea/base.html.twig' %}
 {% block body %}
+        {% if success is defined and success is not empty %}
+            <div class="alert alert-success">{{ success }}</div>
+        {% endif %}
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Search product</h1>
         </div>
-        <form>
+        <form action="{{  'search' }}">
             <div class="form-group">
                 <label for="exampleInputEmail1">Product code or name</label>
-                <input type="text" class="form-control" id="productCode" aria-describedby="product_delete" placeholder="">
+                <input type="text" name="by" class="form-control" id="productCode" aria-describedby="product_delete" placeholder="">
             </div>
             <button type="submit" class="btn btn-primary">Search</button>
         </form>

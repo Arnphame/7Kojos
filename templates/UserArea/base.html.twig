@@ -13,6 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -63,17 +64,13 @@
 {% endblock %}
 
 {% block footer %}
-    <footer class="page-footer navbar-custom">
-        <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a> 7Kojos</a>
-        </div>
-    </footer>
 {% endblock %}
 {% block scripts %}
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-2.2.4.min.js') }}"><\/script>')</script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/filters.js') }}"></script>

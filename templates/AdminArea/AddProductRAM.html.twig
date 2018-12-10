@@ -6,22 +6,6 @@
     </div>
 
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
-    {% if product is defined %}
-        {{ form_start(form) }}
-        {{ form_row(form._token) }}
-        {{ form_errors(form) }}
-
-        Name {{ form_widget(form.name) }}
-        Price {{ form_widget(form.price) }}
-        Discount Price {{ form_widget(form.discount_price) }}
-        Quantity {{ form_widget(form.quantity) }}
-        Long Description {{ form_widget(form.long_description) }}
-        Short Description {{ form_widget(form.short_description) }}
-        Warranty Time {{ form_widget(form.warranty_time) }}
-        <div style="visibility: hidden;">{{ form_widget(form.type) }}</div>
-        <div style="visibility: hidden;">{{ form_widget(form.product_number) }}</div>
-        <button type="submit" class="btn btn-primary">Edit product</button>
-    {% else %}
         {{ form_start(form) }}
         {{ form_row(form._token) }}
         {{ form_errors(form) }}
@@ -38,6 +22,5 @@
         CAS {{ form_widget(form.CAS) }}
         <br>
         <button type="submit" class="btn btn-primary">Add new product</button>
-    {% endif %}
 
 {% endblock %}
