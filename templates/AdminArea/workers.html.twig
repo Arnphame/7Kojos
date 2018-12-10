@@ -1,10 +1,44 @@
 {% extends 'AdminArea/base.html.twig' %}
 {% block body %}
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>ERROR</strong> {% if error is defined and error is not empty %}
+        <div>  {{ error }} </div>
+        {% endif %} }}
+    </div>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Workers</h1>
         </div>
         <button onclick="location.href='{{ path('AddWorker') }}'" type="button" class="btn btn-primary">Add new worker</button>
-        <button onclick="location.href='{{ path('EditWorker') }}'" type="button" class="btn btn-primary">Edit worker</button>
-        <button onclick="location.href='{{ path('RemoveWorker') }}'" type="button" class="btn btn-primary">Delete worker</button>
+        <br>
+        <br>
+        <table class="table table-striped table-sm">
+            <tr>
+                <th>Duty</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Birth date</th>
+                <th>Address</th>
+                <th>Phone number</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            {% for p in workers %}
+            <tr>
+                <td>{{ p.duty }}</td>
+                <td>{{ p.id }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.surname }}</td>
+                <td>{{ p.birthDate|date('Y-m-d') }}</td>
+                <td>{{ p.address }}</td>
+                <td>{{ p.phoneNumber }}</td>
+                <td>{{ p.email }}</td>
+                <td><button onclick="location.href='{{ '/admin/workers/edit/' ~ p.id }}'" type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                <td><button onclick="location.href='{{ '/admin/workers/delete/' ~ p.id }}'" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+         </tr>
+         {% endfor %}
+        </table>
 {% endblock %}
